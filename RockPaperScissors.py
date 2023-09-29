@@ -38,7 +38,6 @@ def get_secondary_move():
 
 def check_winner(p1,p2,p1_points,p2_points):
     string_inputs = ["Rock","Paper","Scissors"]
-    # print(p2)
     inputs = f"Player 1 : {string_inputs[p1-1]}\nPlayer 2 : {string_inputs[p2-1]}"
     if p1-p2 == 0:
         print(f"{inputs} :\nDraw")
