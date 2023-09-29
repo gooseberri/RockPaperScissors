@@ -3,7 +3,7 @@ from random import randint
 
 
 def start():
-    start_input = input("Play?") 
+    start_input = input("Play? Press ENTER") 
     player_input = get_player_move()
     secondary_input = get_secondary_move()
     check_winner(player_input, secondary_input)
@@ -24,13 +24,14 @@ def get_secondary_move():
 
 def check_winner(p1,p2):
     string_inputs = ["Rock","Paper","Scissors"]
+    print(p2)
     inputs = f"Player 1 : {string_inputs[p1-1]}\nPlayer 2 : {string_inputs[p2-1]}"
     if p1-p2 == 0:
-        print(f"Draw")
+        print(f"{inputs} :\nDraw")
     elif p1-p2 == -1 or p1-p2 == 2:
-        print(f"{inputs} : You lose")
+        print(f"{inputs} \nYou lose")
     elif p1-p2 == -2 or p1-p2 == 1:
-        print(f"{inputs} : You win")
+        print(f"{inputs} :\nYou win")
     
 
 
