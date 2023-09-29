@@ -22,12 +22,13 @@ def get_player_move():
     valid_move = False
     while not valid_move:
         system("cls")
-        player_move = input("1: Rock\n" "2: Paper\n" "3: Scissors\n")       
-        player_move = int(player_move)
-        if player_move == 1 or player_move == 2 or player_move == 3:
-            valid_move = True
-        else: 
-            valid_move = False
+        try:
+            player_move = input("1: Rock\n" "2: Paper\n" "3: Scissors\n")       
+            player_move = int(player_move)
+            if player_move == 1 or player_move == 2 or player_move == 3:
+                valid_move = True
+        except ValueError:
+            valid_move = False            
     system("cls")
     return player_move
 
