@@ -5,12 +5,14 @@ from random import randint
 def start():
     playing = True
     first_play = True
+    p1_points = 0
+    p2_points = 0
     while playing:
         if first_play:
             start_input = input("Play? Press ENTER") 
         player_input = get_player_move()
         secondary_input = get_secondary_move()
-        check_winner(player_input, secondary_input)
+        p1_points, p2_points = check_winner(player_input, secondary_input,p1_points,p2_points)
         continue_input = input("Continue? Y/N")
         if continue_input.upper() != "Y":
             playing = False
@@ -31,7 +33,7 @@ def get_secondary_move():
     value = randint(1,3)
     return value
 
-def check_winner(p1,p2):
+def check_winner(p1,p2,p1_points,p2_points):
     string_inputs = ["Rock","Paper","Scissors"]
     print(p2)
     inputs = f"Player 1 : {string_inputs[p1-1]}\nPlayer 2 : {string_inputs[p2-1]}"
@@ -39,9 +41,11 @@ def check_winner(p1,p2):
         print(f"{inputs} :\nDraw")
     elif p1-p2 == -1 or p1-p2 == 2:
         print(f"{inputs} \nYou lose")
+        p2_points += 1
     elif p1-p2 == -2 or p1-p2 == 1:
         print(f"{inputs} :\nYou win")
-    
-
+        p1_points += 1
+    print(f"Player 1 : {p1_points}\nPlayer 2 : {p2_points}")
+    return p1_points, p2_points
 
 start()
